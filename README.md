@@ -65,6 +65,12 @@ dsh-plugins/
 
 `01-qq-bridge/napcat/config.example/` 只有脱敏后的 OneBot 配置示例；NapCat 本体和它自带的 QQ 组件在 Releases 的 zip 里。
 
+## 打赏
+
+这四套东西要是帮你省了时间，可以扫下面这个。不给也能用，代码全是 MIT。
+
+<img src="docs/assets/wechat-pay.png" alt="微信打赏" width="260">
+
 ## 许可
 
 四个插件的代码是 MIT，见各自 `LICENSE`。
