@@ -1,0 +1,10 @@
+{
+  "napcatHome": "C:\\NapCat",
+  "dshExe": "C:\\Program Files\\DeepSeek Harness\\DeepSeek Harness.exe",
+  "dshProcessName": "DeepSeek Harness",
+  "botUin": "10001",
+  "pluginPort": 3002,
+  "httpPort": 3003,
+  "qrValidSeconds": 120,
+  "keepAlive": false
+}

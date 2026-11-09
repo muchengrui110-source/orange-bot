@@ -1,0 +1,90 @@
+================================================================
+ 1-QQ桥接与NapCat-v1.6.2  ·  PACK-INFO
+================================================================
+包名        : 1-QQ桥接与NapCat-v1.6.2
+版本        : dsh-qq-bridge 1.6.2
+              NapCat core 4.18.42（QQ shell 9.9.31-49738，自带 node.exe，不需要另装 QQ）
+打包时间    : 2026-11-04 20:10（+08:00；v1.3 补表情包说明后重打包）
+包目录      : 桌面\插件\1-QQ桥接与NapCat-v1.6.2
+zip         : 桌面\插件\1-QQ桥接与NapCat-v1.6.2.zip
+
+[本版更新]
+- v1.3（2026-11-04）：包根新增 stickers\README.txt，补齐「回复带表情包」功能说明
+  （stickerEnabled / stickerChance / stickerMaxBytes / stickerMaxPerChat、素材从聊天
+  自动收、新装空库、手动放图、怎么关）。NEXT-AI 加 D7 条目与关键文件表行，README 补目录。
+  表情包素材本身是聊天数据，不进包；功能代码本来就在 1.6.2 里。
+- v1.2（2026-11-04）：NapCat core 4.18.37 → 4.18.42（官方 NapCat.Shell.Windows.Node.zip
+  v4.18.42 整包替换）。结构、启动方式、配置、扫码流程不变；napcat\napcat\napcat.mjs
+  3.12MB → 3.34MB，native\ / node_modules\ 一起换新。升级不影响 napcat-qr.json /
+  personas.json / 桥接配置；旧包升级把 napcat\ 整个换掉即可，config.example\ 保留。
+- v1.1（2026-10-31）：追加「NapCat 与桌面 QQ 同号互踢」专题 docs\napcat-qq-conflict.md。
+
+[体积与数量]
+目录大小    : 362,036,037 字节（约 345.3 MB）
+文件数      : 729（不含本文件；含本文件 730）
+目录条目    : 137
+zip 大小    : 约 118 MB（精确值见同级 zip 文件属性；本文件也参与压缩）
+zip 条目数  : 约 867（含目录条目）
+
+[自检结果]
+脱敏扫描    : OK: 0 命中
+              扫描脚本 scan-secrets.ps1，扫描根 = 本包目录；
+              覆盖 3 个真实 QQ 号、角色名、个人机器路径（NapCat 安装目录、本机用户目录），
+              以及 *.log / *.db* / napcat-qr.json / login-qrcode.png / *.breeze 等禁止文件。
+脚本语法    : 5 个 .ps1 全部 0 错误（[Parser]::ParseFile）
+              UTF-8 带 BOM：install.ps1、scripts\start-napcat.ps1、
+                            plugin\scripts\show-qrcode.ps1、plugin\scripts\watch-napcat.ps1
+              无需 BOM：napcat\napcat\launcher-elevate.ps1（NapCat 自带纯 ASCII 脚本）
+JSON 解析   : 全部通过（config.example 两个示例、plugin package.json、locale、napcat 配置）
+启动实测    : 4.18.37 时从本包目录起过 NapCat（二维码正常写入 napcat\napcat\cache\）；
+              4.18.42 为整包替换、结构与官方一致，未再次启动（本机有运行中的 NapCat
+              占着 3002，避免同号互踢）。装到新机器时按 README 第 2 步正常扫码即可。
+zip 抽查    : 解压根目录含 NEXT-AI.md / README.md / install.ps1 / plugin\ / napcat\ / scripts\ /
+              docs\ / stickers\
+
+[内容清单]
+NEXT-AI.md              给下一个 AI 的避坑说明书（498 行）：
+                        一句话+数据流图 / 安装顺序 8 步 / 三条铁律 / 坑清单 A~F /
+                        关键文件表 / 自检清单（可复制跑）/ 症状→排查表 / 本包不含什么
+                        B2 是「NapCat 与桌面 QQ 同号互踢」，D7 是「回复带表情包」
+README.md               给人看的短安装说明（122 行，6 步装完 + 同号互踢警示一节）
+install.ps1             一键落位：校验解压完整性、写 napcat-qr.json（不覆盖）、
+                        打印后续命令；-DryRun 只看不做，-Shortcuts 建桌面快捷方式
+docs\qq-bridge.md       安装与使用说明（脱敏版）
+docs\napcat-qq-conflict.md  「NapCat 和桌面 QQ 互踢」专题（179 行）：
+                        现象对号入座 / 原因（同号只能一个 QQ NT 会话）/ 方案 A 独立小号 /
+                        方案 B 同号二选一（含停看门狗）/ 方案 C 手机 QQ 可并存 /
+                        换号切换 6 步（含清快速登录缓存）/ 被踢急救 / 登录设备检查 /
+                        目录必须分开 / 速查命令表
+stickers\README.txt     表情包库说明：默认开（stickerChance 0.4），对方发来的图按聊天
+                        自动收进 <DSH_HOME>\qq-bridge\stickers\，新装空库，素材不进包
+plugin\                 dsh-qq-bridge 1.6.2（MIT）
+  lib\index.js            桥接主体（OneBot WS / 会话 / 人格注入 / 收发 / 表情包 / 控制面 API）
+  lib\client.js           设置页「QQ 桥接」前端
+  scripts\show-qrcode.ps1 实时二维码窗口（必须 -STA，WinForms）
+  scripts\watch-napcat.ps1 看门狗（-CheckOnly 可干跑）
+  scripts\napcat-qr.example.json
+  cordis.patch.yml / package.json / locale\ / icon.svg / LICENSE
+napcat\                 NapCat 运行时本体（706 个文件 / 345.0 MB / 361,716,979 字节）
+  node.exe / index.js / napcat.bat / wrapper.node / QQNT.dll / 各运行库 dll
+  napcat\                 NapCat core 4.18.42（napcat.mjs、node_modules、native、static、worker）
+  win64\                  parent-ipc-core-x64.dll、SSOShareInfoHelper64.dll
+  config.example\         脱敏 OneBot 配置示例（ws 3002 / http 3003 / token 空 / 假号 10001）
+scripts\
+  start-napcat.ps1        无窗口启动 NapCat（幂等；-CheckOnly / -Stop；读 napcat-qr.json 的 botUin）
+  run-hidden.vbs          wscript 完全隐藏地跑一个 ps1
+  napcat.bat              转发到 ..\napcat\napcat.bat
+  napcat-qr.example.json  配置模板
+
+[本包不含]
+真实 QQ 号 / token / 密码；napcat-qr.json；napcat\napcat\config\ 下的真实配置；
+日志 / 数据库 / 缓存 / 登录二维码；人格正文 / 聊天记录 / 表情包素材；
+语音合成引擎；dsh-persona（身份与人设）插件
+
+[关键入口]
+装法        : README.md 六步
+避坑        : NEXT-AI.md 第三节（坑清单）+ 第六节（症状→排查）
+同号互踢    : docs\napcat-qq-conflict.md（或 NEXT-AI.md 的 B2）
+表情包      : stickers\README.txt（或 NEXT-AI.md 的 D7）
+装完自检    : NEXT-AI.md 第五节（PowerShell 可直接复制跑）
+================================================================

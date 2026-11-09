@@ -1,0 +1,41 @@
+{
+  "name": "dsh-persona",
+  "version": "1.4.0",
+  "description": "身份与人设：DSH 设置里的「身份与人设」页，直接编辑 QQ 桥接的 personas.json；给一个角色名还能从互联网学习人设和说话方式。自带一个「蓝色示例角色」性格模板。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "templates/*.json",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "persona",
+    "qq-bridge"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "license": "MIT",
+  "author": "dsh-persona contributors"
+}

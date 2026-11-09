@@ -1,0 +1,45 @@
+{
+  "network": {
+    "httpServers": [
+      {
+        "name": "dsh-http",
+        "enable": true,
+        "host": "127.0.0.1",
+        "port": 3003,
+        "messagePostFormat": "array",
+        "enableForcePushEvent": false,
+        "reportSelfMessage": false,
+        "token": "",
+        "debug": false,
+        "heartInterval": 30000
+      }
+    ],
+    "httpSseServers": [],
+    "httpClients": [],
+    "websocketServers": [],
+    "websocketClients": [
+      {
+        "name": "dsh-qq-bridge",
+        "enable": true,
+        "url": "ws://127.0.0.1:3002/",
+        "messagePostFormat": "array",
+        "reportSelfMessage": false,
+        "reconnectInterval": 5000,
+        "token": "",
+        "debug": false,
+        "heartInterval": 30000
+      }
+    ],
+    "plugins": []
+  },
+  "musicSignUrl": "",
+  "enableLocalFile2Url": false,
+  "parseMultMsg": false,
+  "imageDownloadProxy": "",
+  "timeout": {
+    "baseTimeout": 10000,
+    "uploadSpeedKBps": 256,
+    "downloadSpeedKBps": 256,
+    "maxTimeout": 1800000
+  }
+}

@@ -1,0 +1,66 @@
+================================================================
+PACK-INFO · 2-身份与人设-dsh-persona-v1.4.0
+================================================================
+包名      : dsh-persona（DSH 插件 · 设置里的「身份与人设」页）
+版本      : 1.4.0
+许可证    : MIT
+打包时间  : 2026-10-31 22:53 (UTC+08:00)
+
+目录内文件数 : 20（其中 PACK-INFO.txt 1 个）
+目录大小     : 约 225 KB（精确字节数见文件属性；PACK-INFO 自身也计入目录）
+zip 文件     : 2-身份与人设-dsh-persona-v1.4.0.zip
+zip 大小     : 约 81 KB（0.08 MB；精确字节数以文件属性为准，PACK-INFO 自身也参与压缩）
+zip 条目数   : 20
+
+----------------------------------------------------------------
+包内结构
+----------------------------------------------------------------
+NEXT-AI.md      给下一个 AI 的避坑说明书（数据流 / 安装顺序 /
+                三条铁律 / 坑清单 A~H / 关键文件表 / 自检清单 /
+                症状→排查 / 本包不含什么）
+README.md       给人看的短安装说明（76 行）
+install.ps1     落位脚本（UTF-8 带 BOM；幂等；不覆盖已有配置）
+docs\persona.md 插件功能与字段说明
+plugin\         dsh-persona 1.4.0 本体
+  package.json            包清单（main=lib/index.js，dsh.bundle.patch）
+  cordis.patch.yml        插入 id: dsh-persona；personaFile/speechFile/
+                          provider/model 在此配置
+  lib\index.js            宿主侧：personas.json 读写 + 四个 API 路由
+  lib\client.js           设置页 UI
+  lib\learn.js            联网学角色（带 SAFETY_FOOTER 底线）
+  lib\parse.js            网页解析
+  lib\speech.js           说话习惯统计（只存数字）
+  lib\mode.js             三段式模式与 composeModeBody
+  lib\split.js            长文本拆分
+  templates\personas.template.json  唯一人格模板（示例角色）
+  locale\ icon.svg README.md LICENSE
+
+----------------------------------------------------------------
+依赖
+----------------------------------------------------------------
+第三方依赖 : 无（不联网装依赖，不占端口）
+运行时依赖 : DSH；建议先装 dsh-qq-bridge（personas.json 由它建）
+需要手工补 : personas.json 本身不在包里（隐私数据）；桥接首次启动
+             会建一份极简的，或用本包模板 / 页面里现写
+
+----------------------------------------------------------------
+装法（摘要，详版见 README.md / NEXT-AI.md）
+----------------------------------------------------------------
+1. 解压到固定目录
+2. powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+3. cd plugin ; npm pack   → dsh-persona-1.4.0.tgz
+4. DSH 插件页 → 添加插件 → 选 tgz → 安装 → 启用
+5. 重启 DSH
+6. 设置 → 左侧「身份与人设」
+铁律：不要从本地文件夹安装（pnpm 只建 link、不装依赖 → failed to import）
+
+----------------------------------------------------------------
+脱敏
+----------------------------------------------------------------
+已用维护者提供的 scan-secrets.ps1 扫描：0 命中。
+模板 sources 里两处历史残留已清理：
+  · 萌娘百科链接由旧页面改为通用条目 /DeepSeek%E5%A8%98
+  · B 站来源由具体账号视频改为搜索页
+包内不含任何 QQ 号、真实姓名/角色名、个人绝对路径、人格正文、
+settings-ui.json、sessions.json、日志、音色文件。
+================================================================

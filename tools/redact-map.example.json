@@ -1,0 +1,31 @@
+{
+  "_comment": "复制成 redact-map.json 再填。这个文件（含真实值）不进仓库。",
+  "description": "<插件的一句话说明，会写进 package.json>",
+  "resources": ["icon.svg", "LICENSE", "locale", "scripts"],
+  "codeFiles": ["index.js", "client.js"],
+  "copy": ["cordis.patch.yml", "README.md"],
+  "files": ["lib", "scripts", "locale", "cordis.patch.yml", "README.md", "LICENSE", "icon.svg"],
+  "replace": [
+    {
+      "from": "const DEBUG_LOG_FILE = 'D:\\\\your-tool-dir\\\\debug.log';",
+      "to": "const DEBUG_LOG_FILE = join(HOME_DIR, 'debug.log');",
+      "label": "调试日志路径",
+      "count": 1
+    },
+    {
+      "from": "'发语音要带 -Persona，值是【当前性格模式】后面那个名字（甲 / 乙 等）'",
+      "to": "'发语音要带 -Persona，值是【当前性格模式】后面那个名字'",
+      "label": "提示词里的人名",
+      "count": 1
+    }
+  ],
+  "regex": [
+    {
+      "pattern": "例如 \\d{5,12}, \\d{5,12}",
+      "flags": "g",
+      "to": "例如 10001, 10002",
+      "label": "示例账号"
+    }
+  ],
+  "forbidden": ["D:\\\\your-tool-dir", "10001", "<你的名字>"]
+}

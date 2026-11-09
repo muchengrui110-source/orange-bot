@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Identity & Persona",
+    "description": "Edit the account's identity, persona modes and rules from DSH Settings; give a character name and it learns the persona and speaking style from the web. Reads and writes the QQ bridge's personas.json directly."
+  }
+}

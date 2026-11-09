@@ -1,0 +1,30 @@
+# 运行时产物 / 私人数据：永远不进版本库
+*.log
+*.db
+*.db-shm
+*.db-wal
+personas.json
+settings-ui.json
+sessions.json
+voice-personas.json
+qq-names.json
+napcat-qr.json
+login-qrcode.png
+*.breeze
+*.mp3
+*.wav
+*.ogg
+voice-paths.json
+engine-runtime/
+
+# 大二进制走 Releases，不进仓库
+01-qq-bridge/napcat/*
+!01-qq-bridge/napcat/config.example
+03-voice/engine/*.zip
+
+# 工具目录
+_tools/
+
+# 真实脱敏名单不进仓库（模板见 tools/redact-patterns.example.txt）
+redact-patterns.txt
+redact-map.json

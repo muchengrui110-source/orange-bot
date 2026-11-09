@@ -1,0 +1,43 @@
+{
+  "name": "dsh-qq-bridge",
+  "version": "1.6.2",
+  "description": "DSH 插件：通过 OneBot v11 接入 QQ，把私聊/群聊交给 DSH Agent 处理并把回复发回 QQ（NapCatQQ / LLOneBot / Lagrange 均可）。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "locale",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "icon.svg"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "qq",
+    "onebot",
+    "napcat",
+    "bridge"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  }
+}

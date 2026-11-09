@@ -1,0 +1,30 @@
+MIT License
+
+Copyright (c) 2026 dsh-plugins contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+第三方组件不在本许可范围内，各自按上游许可：
+
+- NapCat（NapNeko/NapCatQQ）及其内含的 QQ 客户端组件：见上游 LICENSE，仅供自用/学习。
+- Breeze TTS 2 推理引擎：Apache-2.0（见引擎包内 LICENSE）；模型权重为 BreezeBlue 非商用研究许可。
+- dsh-mnemon 及其子包：MIT（omdsh-dev/dsh-mnemon），见 04-memory/plugin/dsh-mnemon/LICENSE。
+- 04-memory/plugin/node_modules/ 下其余包：各自 npm 包内 LICENSE（fflate MIT、yaml ISC、zod MIT 等）。

@@ -1,0 +1,129 @@
+================================================================
+PACK-INFO · 4-长期记忆-dsh-mnemon-v0.5.39
+================================================================
+包名      : dsh-mnemon（DSH 长期记忆插件 · 三层记忆 + 档案 + 记忆空间 + 技能）
+版本      : 0.5.39（2026-11-04 更新，上一版 0.5.34）
+许可证    : MIT（第三方 Provider 各自许可，见插件 THIRD_PARTY_NOTICES.md）
+打包时间  : 2026-11-04 12:30 (UTC+08:00)
+
+目录内文件数 : 1405（含 PACK-INFO.txt 1 个）
+目录大小     : 12,726,820 字节（约 12.1 MB；PACK-INFO 自身也计入目录）
+zip 文件     : 4-长期记忆-dsh-mnemon-v0.5.39.zip
+zip 大小     : 约 3.4 MB（精确字节数以文件属性为准，PACK-INFO 自身也参与压缩）
+zip 条目数   : 约 1,407（1405 文件 + 目录条目）
+
+----------------------------------------------------------------
+本版更新（0.5.34 → 0.5.39）
+----------------------------------------------------------------
+- 0.5.35  Runtime 替换保留 importance；导入/同步溢出进 archive 不丢；
+          技能管理加回收站；评测支持「需要图片输入」用例；OpenViking 严格写入。
+- 0.5.36  修技能复盘多条待处理建议时崩（#495）；新建/改进建议可分别控制（#498）；
+          支持自选数据目录（#355）；适配 DSH 0.2.1-rc.3。
+- 0.5.37  技能草拟/回测可选模型（#508）；Runtime 容量可调、保留记录（#514）；
+          embedding 模型校验（#511）。
+- 0.5.38  会话切换/隐藏面板不再重复读记忆（#530/#534）；空闲审查被工具守卫挡住
+          时不硬跑（#533）；可选持久审查配额与冷却（#531）；修 ByteRover
+          在 Windows 的 npm CLI 启动（#527）。
+- 0.5.39  其他插件短路提示词组装时仍补记忆 View（#544）；PTC 准入限制在持久
+          回合、损坏历史只做副本恢复（#545）；活动摘要保留 Unicode 代理对
+          （#549）；技能草稿可选目标范围（#546）；支持 DSH 0.2.1-rc.5 /
+          0.2.2-alpha.2 工具契约（#547）。
+- 新版 cordis.patch.yml 加了警告：别把 insert 块抄进 profile 的
+  cordis.patch.yml，会重复 entry ID、设置页存不了（issue #470）。
+- 升级不迁移数据：%USERPROFILE%\.mnemon 原样保留。
+
+----------------------------------------------------------------
+包内结构
+----------------------------------------------------------------
+NEXT-AI.md       给下一个 AI 的避坑说明书（467 行）
+                 数据流 / 版本更新记录 / 安装顺序 / 三条铁律 /
+                 坑清单 A~H / 关键文件表 / 自检清单 /
+                 症状→排查 / 本包不含什么
+README.md        给人看的安装说明（133 行）
+install.ps1      离线落位脚本（UTF-8 带 BOM；幂等；不覆盖已有目录）
+docs\quickstart.md  装完之后怎么用：三层记忆 / 档案 / 记忆空间 /
+                 开关速查 / 容量与压缩 / 数据位置与备份
+plugin\
+  dsh-mnemon\            插件本体 0.5.39
+    package.json         依赖精确版本 + engines（node>=20, dsh 0.2.x）
+    cordis.patch.yml     默认挂载 + 全部默认开关
+    lib\index.js         Core/Host（配置、存储根、Provider 编排、工具）
+    lib\client.js        记忆系统 / 可组合记忆 页面
+    bin\repair-legacy-session.mjs  老会话修复
+    README.md README.zh-CN.md SECURITY.md THIRD_PARTY_NOTICES.md LICENSE
+    locale\ lib\types\
+  node_modules\          22 个目录：
+    9 个 provider-*      byterover / hindsight / holographic / honcho /
+                         mem0 / mnemon-native / openviking / retaindb /
+                         supermemory
+    4 个 source-*        runtime / documents / memory-spaces / skills
+    5 个 strategy-*      default-three-tier（默认选中的主策略）/
+                         general / auto-capture / light-context / scoped
+    4 个外部依赖         zod 4.6.7 / yaml 2.9.1 / fflate 0.8.3 /
+                         markdown-to-jsx 7.7.17
+
+----------------------------------------------------------------
+复制来源（供核对版本）
+----------------------------------------------------------------
+plugin\dsh-mnemon                  ← npm 包 dsh-mnemon@0.5.39（官方 tarball）
+plugin\node_modules\dsh-mnemon-*   ← npm 包 18 个子包，版本按 0.5.39 的
+                                     dependencies 精确锁定（0.5.39 的依赖与
+                                     0.5.34 相比全部升了小版本）
+plugin\node_modules\zod            ← zod@4.6.7
+plugin\node_modules\yaml           ← yaml@2.9.1
+plugin\node_modules\fflate         ← fflate@0.8.3
+plugin\node_modules\markdown-to-jsx ← markdown-to-jsx@7.7.17
+                                     （source-documents / source-skills 的真实
+                                      依赖，缺了会 ERR_MODULE_NOT_FOUND）
+
+未复制（由宿主提供，不要手动装进 profile）：
+  @deepseek-ai/cordis、@deepseek-ai/cosmokit、@deepseek-ai/schemastery、
+  @deepseek-ai/dsh-app-boot、@deepseek-ai/dsh-typert-protocol、react、react-dom
+
+----------------------------------------------------------------
+依赖与外部组件
+----------------------------------------------------------------
+第三方依赖 : zod / yaml / fflate / markdown-to-jsx（已随包）
+宿主提供   : 上面列出的 @deepseek-ai/* 与 react / react-dom
+可选外部   : 1) Mnemon CLI（记忆空间才需要）
+                npm install --global @mnemon-dev/mnemon
+                或设 config.cliPath / 环境变量 MNEMON_CLI_PATH
+             2) 本地向量嵌入（默认关）
+                ollama + nomic-embed-text，默认 http://localhost:11434
+             3) 第三方 Provider 的账号/key（默认关，配了才用）
+端口       : 插件自己不占端口（全部走 DSH 宿主）
+
+----------------------------------------------------------------
+装法（摘要，详版见 README.md / NEXT-AI.md）
+----------------------------------------------------------------
+1. 解压到固定目录
+2. powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+   （默认往 <DSH_HOME>\profiles\desktop\node_modules 复制 23 个目录；
+     可 -ProfileName / -DshHome / -Force）
+3. 改 profile 的 package.json：dependencies 加 "dsh-mnemon": "0.5.39"，
+   dsh.profile.bundles 加 "dsh-mnemon"
+4. 重启 DSH
+5. 侧栏「记忆系统」→ 状态；插件页「可组合记忆」→ 主策略与组件
+铁律：不要用 link: 装本地文件夹；@deepseek-ai/*、react、react-dom 由宿主提供。
+升级：直接覆盖装，.mnemon 里的记忆不用迁移；做一次 ZIP 备份更稳。
+
+----------------------------------------------------------------
+数据与容量
+----------------------------------------------------------------
+默认数据目录：%USERPROFILE%\.mnemon（可用 MNEMON_DATA_DIR 覆盖）
+  runtime\  memories.json（事实源）/ MEMORY.md、USER.md（投影）/
+            archived\ / .memories.lock
+  documents\ index.json / active\（活跃档案 ≤10MB）/ archived\（不占额度）
+  state\    machine.json（本机身份，不进备份）
+热记忆容量：MEMORY.md 10KB、USER.md 4KB、单条 8KB；超了自动压缩归档
+           （有可写记忆空间就归档进去，没有就落本地 archived\）
+storageScope：global（默认）/ workspace / workspaces / custom
+
+----------------------------------------------------------------
+脱敏
+----------------------------------------------------------------
+已用维护者提供的 scan-secrets.ps1 扫描：0 命中。
+包内不含任何 QQ 号、真实姓名/角色名、个人绝对路径、.mnemon 数据、
+settings-ui.json、sessions.json、日志、Provider 凭据、音色文件。
+所有示例路径统一写成 <DSH_HOME> / %USERPROFILE% / ~/.mnemon。
+================================================================

@@ -1,0 +1,23 @@
+# ============================================================================
+# dsh-persona —— DSH bundle patch
+# ============================================================================
+# 设置里多一页「身份与人设」：
+#   - 默认读写 <DSH_HOME>/qq-bridge/personas.json（QQ 桥接的数据目录）
+#   - personas.json 不存在时，用 templates/personas.template.json 初始化（只带一个示例性格）
+#   - 说话习惯：在 DSH 里聊天时统计每条多少字、怎么断句（只存数字不存原话），
+#     攒够 8 条生成节奏提示，可以一键追加到某个会话模式；默认写到 personas.json 旁边的
+#     speech-habits.json，可用 config.speechFile 改。
+#
+# 文件位置不同：在 profile 的 cordis 配置里按 id 覆盖 dsh-persona 的 config.personaFile，
+# 或者直接改下面 config.personaFile，然后重启 DSH。
+# 想固定学习用的模型，可以写 config.provider / config.model（不写就用当前默认模型）。
+#
+# ⚠️ `name:` 必须与安装后的包名完全一致（这里是 dsh-persona）。
+# ============================================================================
+
+- insert:
+    - id: dsh-persona
+      name: dsh-persona
+      # config:
+      #   personaFile: '<DSH_HOME>/qq-bridge/personas.json'
+      #   speechFile: '<DSH_HOME>/qq-bridge/speech-habits.json'

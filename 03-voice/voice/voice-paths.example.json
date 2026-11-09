@@ -1,0 +1,12 @@
+{
+  "_说明": "安装脚本会生成一份真正的 voice-paths.json 放在包根。所有脚本都会从自己所在目录向上找这个文件；找不到就退回脚本里的默认值。",
+  "voiceRoot": "D:\\tools\\breeze-tts",
+  "voiceBinDir": "D:\\tools\\breeze-tts\\breeze-tts-2-v0.1.6-windows-x64-vulkan",
+  "configFile": "C:\\Users\\you\\.dsh\\qq-bridge\\breeze-tts.json",
+  "voicesDir": "C:\\Users\\you\\.dsh\\qq-bridge\\voice\\breeze-voices",
+  "personaFile": "C:\\Users\\you\\.dsh\\qq-bridge\\personas.json",
+  "voicePersonas": "C:\\Users\\you\\.dsh\\qq-bridge\\voice-personas.json",
+  "nodeExe": "node",
+  "pythonExe": "python",
+  "ffmpegExe": "ffmpeg"
+}

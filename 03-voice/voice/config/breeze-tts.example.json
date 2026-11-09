@@ -1,0 +1,19 @@
+{
+  "_说明": "语音服务的运行配置。voiceId 留空 = 用 instruction 现场设计声音（每次都会重新捏，音色会飘）；想稳定就把音色存成 .breeze，再把 id 填进 voiceId。",
+
+  "enabled": true,
+  "port": 8137,
+  "model": "q4",
+  "cfgScale": 1.0,
+
+  "idleExitMinutes": 10,
+  "startupTimeoutSeconds": 90,
+  "requestTimeoutSeconds": 180,
+
+  "instruction": "一位二十岁上下的年轻男声，声音清楚，语气自然，像平时聊天那样说话。",
+  "voiceId": "",
+
+  "voicesDir": "<安装时自动填>",
+  "personaFile": "<安装时自动填>",
+  "voicePersonas": "<安装时自动填>"
+}
