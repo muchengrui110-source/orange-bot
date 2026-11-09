@@ -1,6 +1,6 @@
 # QQ 桥接 + NapCat 分发包 v1.6.2
 
-> **仓库版不带运行时。** 这里只有桥接插件、脚本和文档；`napcat\` 下只留了脱敏的 `config.example\`。NapCat 本体（345MB）在 Releases 的 `1-QQ桥接与NapCat-v1.6.2.zip` 里，要直接装就下那个 zip，别从仓库目录跑 `install.ps1`（会报缺 `napcat\node.exe`）。
+> **仓库版不带运行时。** 这里只有桥接插件、脚本和文档；`napcat\` 下只留了脱敏的 `config.example\`。NapCat 本体（345MB）在 Releases 的 `1-qq-bridge-napcat-v1.6.2.zip` 里，要直接装就下那个 zip，别从仓库目录跑 `install.ps1`（会报缺 `napcat\node.exe`）。
 
 把 QQ 私聊/群聊接到 DSH Agent：NapCat 替你登录一个小号，消息交给 DSH 处理，回复自动发回 QQ。
 带**实时二维码窗口**、**NapCat 看门狗**、**一键启动脚本**，NapCat 本体已打包，不用另外装 QQ。

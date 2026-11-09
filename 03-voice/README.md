@@ -1,6 +1,6 @@
 # 语音模型 Breeze（Breeze TTS 2 v0.1.6）
 
-> **仓库版不带推理引擎。** `engine\` 下没有那个 74MB 的 zip，在 Releases 的 `3-语音模型-Breeze-v0.1.6.zip` 里。要从仓库直接装，先把引擎 zip 放回 `engine\`，或者用 Releases 的包。
+> **仓库版不带推理引擎。** `engine\` 下没有那个 74MB 的 zip，在 Releases 的 `3-voice-breeze-v0.1.6.zip` 里。要从仓库直接装，先把引擎 zip 放回 `engine\`，或者用 Releases 的包。
 
 本地文字转语音：给一句话，出 mp3。纯本地跑，不联网（除了第一次下模型），Windows 10/11 64 位，N 卡 A 卡都行（Vulkan，不用装 CUDA）。
 
