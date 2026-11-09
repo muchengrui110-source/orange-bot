@@ -1,4 +1,4 @@
-# redact-patterns.example.txt —— 脱敏扫描的名单模板
+﻿# redact-patterns.example.txt —— 脱敏扫描的名单模板
 #
 # 用法：复制成 redact-patterns.txt，然后把下面注释掉的示例行改成你自己的真实值并取消注释。
 #   copy redact-patterns.example.txt redact-patterns.txt
