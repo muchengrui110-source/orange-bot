@@ -88,7 +88,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\scan-secrets.ps1 -Root
 
 - 名单：`tools\redact-patterns.txt`（把 `redact-patterns.example.txt` 复制一份，换成自己的号/名/路径，不进仓库）；没有名单也能跑，只用内置通用规则（邮箱 / 令牌 / 个人目录 / 疑似账号）
 - 输出必须是 `OK: 0 命中`，exit code 0 才算过；有命中就回去改，别在扫描脚本里加白名单糊弄
-- 「疑似账号」默认只提示、不算失败；要卡死加 `-Strict`
+- 「提示」类（邮箱 / 令牌 / 个人目录 / 疑似账号）默认只打印、不算失败；要一起卡死加 `-Strict`
 - 整个包根目录再跑一次终验：`powershell -NoProfile -ExecutionPolicy Bypass -File tools\verify-pack.ps1 -Root "<包根目录>"`
 - 目录里没有 `*.log`、`*.db*`、`*.breeze`、`personas.json`、`settings-ui.json`、`sessions.json`、`voice-personas.json`、`napcat-qr.json`
 - 所有 `.ps1` 语法 0 错误，含中文的有 BOM

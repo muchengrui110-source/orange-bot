@@ -3,12 +3,15 @@
 # 用法:
 #   powershell -NoProfile -ExecutionPolicy Bypass -File scan-secrets.ps1 -Root "<包目录>"
 #   powershell -NoProfile -ExecutionPolicy Bypass -File scan-secrets.ps1 -Root "<包目录>" -PatternsFile ".\redact-patterns.txt"
+#   powershell -NoProfile -ExecutionPolicy Bypass -File scan-secrets.ps1 -Root "<包目录>" -Strict
 #
 # 判定：命中名单或禁止文件 -> exit 1；只有「提示」也打印但 exit 0。
+# -Strict 时「提示」（邮箱 / 令牌 / 个人用户目录 / 疑似账号）也算失败。
 # 注意：本文件含中文，必须 UTF-8 带 BOM，否则 PowerShell 5.1 按 GBK 解析报语法错。
 param(
     [Parameter(Mandatory = $true)][string]$Root,
-    [string]$PatternsFile = ''
+    [string]$PatternsFile = '',
+    [switch]$Strict
 )
 
 $ErrorActionPreference = 'Stop'
@@ -91,6 +94,11 @@ foreach ($f in $scanForHints) {
 }
 
 # ── 输出 ─────────────────────────────────────────────────────────────────
+if ($Strict -and $hints.Count -gt 0) {
+    foreach ($h in $hints) { Add-Bad("STRICT " + $h) }
+    $hints = New-Object System.Collections.ArrayList
+}
+
 if ($hints.Count -gt 0) {
     Write-Host ("提示 " + $hints.Count + " 条（人工看一眼，不一定是问题）：") -ForegroundColor Yellow
     $hints | Sort-Object -Unique | Select-Object -First 20 | ForEach-Object { Write-Host ("  " + $_) }

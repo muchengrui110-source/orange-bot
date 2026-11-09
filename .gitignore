@@ -27,4 +27,3 @@ _tools/
 
 # 真实脱敏名单不进仓库（模板见 tools/redact-patterns.example.txt）
 redact-patterns.txt
-redact-map.json
