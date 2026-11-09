@@ -1,6 +1,6 @@
-# DSH 插件四件套：QQ 桥接 / 身份与人设 / 语音 / 长期记忆
+# Orange juice 机器人：QQ 桥接 / 身份与人设 / 语音 / 长期记忆
 
-给 DeepSeek Harness（下称 DSH）用的四套东西，拼起来是：一个能上 QQ、有固定人设、会发语音、跨对话记得住人的本地 agent。全部本地跑，除了第一次下模型不联网。
+给 DeepSeek Harness（下称 DSH）用的四套东西，拼起来是：一个能上 QQ、有固定人设、会发语音、跨对话记得住人的本地 agent。这套东西叫 **Orange juice 机器人**。全部本地跑，除了第一次下模型不联网。
 
 仓库里是源码、脚本和文档；**带运行时的成品包在 Releases**（NapCat 本体 345MB、语音引擎 74MB 这种不进 git）。
 
@@ -54,7 +54,7 @@
 ## 目录
 
 ```
-dsh-plugins/
+orange-juice-bot/
   01-qq-bridge/       桥接插件 + NapCat 配置示例 + 看门狗/二维码脚本
   02-persona/         人设插件 + 人设模板
   03-voice/           语音脚本 + 网页工作室 + 引擎占位（引擎 zip 在 Releases）
